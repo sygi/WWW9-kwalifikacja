@@ -4,7 +4,7 @@ public class Animacja
 {
 	static char[] dirchars = { '>', 'v', '<', '^' };
 	
-	public static const int WAIT_TIME = 1000;
+	public static final int WAIT_TIME = 1000;
 	
 	public static void main(String args[])
 	{
@@ -46,6 +46,11 @@ public class Animacja
 				rb.simulationStep();
 				nstep++;
 			}
+			
+			if (rb.getInfoA().hp == 0)
+				System.out.println("Robot B wins!");
+			else
+				System.out.println("Robot A wins!");
 		}
 		catch (InterruptedException iex)
 		{
