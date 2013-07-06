@@ -27,13 +27,13 @@ public class RobotBattle
 		rInfoA = new RobotInfo();
 		rInfoA.x = rnd.nextInt(8);
 		rInfoA.y = rnd.nextInt(8);
-		rInfoA.hp = 5;
+		rInfoA.hp = STEPS_PER_ROUND;
 		rInfoA.orientation = rnd.nextInt(4);
 		
 		rInfoB = new RobotInfo();
 		rInfoB.x = rnd.nextInt(8);
 		rInfoB.y = rnd.nextInt(8);
-		rInfoB.hp = 5;
+		rInfoB.hp = STEPS_PER_ROUND;
 		rInfoB.orientation = rnd.nextInt(4);
 		
 		riProxyA = new RobotInfo();
@@ -109,26 +109,42 @@ public class RobotBattle
 		if (isOver())
 			return;
 		
+		int amoves = rInfoA.hp;
+		int bmoves = rInfoB.hp;
+		
 		//Dwukrotne klonowanie jest potrzebne, gdyż gracz A mógł złośliwie coś zmienić
 		riProxyA.clone(rInfoA);
 		riProxyB.clone(rInfoB);
-		rBrainA.planMoves(riProxyA, riProxyB, stepArrA, STEPS_PER_ROUND);
+		rBrainA.planMoves(riProxyA, riProxyB, stepArrA, amoves);
 		
 		riProxyA.clone(rInfoA);
 		riProxyB.clone(rInfoB);
-		rBrainB.planMoves(riProxyB, riProxyA, stepArrB, STEPS_PER_ROUND);
+		rBrainB.planMoves(riProxyB, riProxyA, stepArrB, bmoves);
 		
-		for (int i = 0; i < STEPS_PER_ROUND; i++)
+		int nstep = 0;
+		while (amoves > 0 || bmoves > 0)
 		{
-			System.out.print("Player A ");
-			performMove(rInfoA, rInfoB, stepArrA[i]);
-			if (isOver())
-				return;
+			if (amoves > 0)
+			{
+				System.out.print("Player A ");
+				performMove(rInfoA, rInfoB, stepArrA[nstep]);
+				if (isOver())
+					return;
+				
+				amoves--;
+			}
 			
-			System.out.print("Player B ");
-			performMove(rInfoB, rInfoA, stepArrB[i]);
-			if (isOver())
-				return;
+			if (bmoves > 0)
+			{
+				System.out.print("Player B ");
+				performMove(rInfoB, rInfoA, stepArrB[nstep]);
+				if (isOver())
+					return;
+				
+				bmoves--;
+			}
+			
+			nstep++;
 		}
 	}
 	
