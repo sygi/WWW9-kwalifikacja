@@ -10,6 +10,8 @@ public class RobotBattle
 	public final int ROBOT_A_WON = 0;
 	public final int ROBOT_B_WON = 1;
 	
+	public final boolean VERBOSE_MOVES = true;
+	
 	private RobotBrain rBrainA, rBrainB;
 	private RobotInfo rInfoA, rInfoB;
 	private RobotInfo riProxyA, riProxyB;
@@ -56,32 +58,38 @@ public class RobotBattle
 		{
 		case RobotBrain.OP_FIRE:
 			thisRobot.fire(thatRobot);
-			System.out.println("fired");
+			if (VERBOSE_MOVES)
+				System.out.println("fired");
 			break;
 			
 		case RobotBrain.OP_HIT:
 			thisRobot.hit(thatRobot);
-			System.out.println("hit");
+			if (VERBOSE_MOVES)
+				System.out.println("hit");
 			break;
 			
 		case RobotBrain.OP_STEP_FORWARD:
 			thisRobot.step(1, thatRobot);
-			System.out.println("stepped forward");
+			if (VERBOSE_MOVES)
+				System.out.println("stepped forward");
 			break;
 			
 		case RobotBrain.OP_STEP_BACKWARD:
 			thisRobot.step(-1, thatRobot);
-			System.out.println("stepped backward");
+			if (VERBOSE_MOVES)
+				System.out.println("stepped backward");
 			break;
 			
 		case RobotBrain.OP_TURN_LEFT:
 			thisRobot.turnLeft();
-			System.out.println("turned left");
+			if (VERBOSE_MOVES)
+				System.out.println("turned left");
 			break;
 			
 		case RobotBrain.OP_TURN_RIGHT:
 			thisRobot.turnRight();
-			System.out.println("turned right");
+			if (VERBOSE_MOVES)
+				System.out.println("turned right");
 			break;
 			
 		default:

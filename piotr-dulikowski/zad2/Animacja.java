@@ -35,8 +35,8 @@ public class Animacja
 				}
 				
 				System.out.println("A's HP: " + rb.getInfoA().hp + " B's HP: " + rb.getInfoB().hp);
-				System.out.println("A: (" + rb.getInfoA().x + ", " + rb.getInfoA().y + ")");
-				System.out.println("B: (" + rb.getInfoB().x + ", " + rb.getInfoB().y + ")");
+				//System.out.println("A: (" + rb.getInfoA().x + ", " + rb.getInfoA().y + ")");
+				//System.out.println("B: (" + rb.getInfoB().x + ", " + rb.getInfoB().y + ")");
 				
 				if (rb.isOver())
 					break;
