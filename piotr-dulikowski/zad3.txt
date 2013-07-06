@@ -1,0 +1,19 @@
+Jeżeli wszystkie inne pomysły zawiodą, można by napisać prostą grę komputerową!
+Wymagana jest podstawowa znajomość multimediów, tzn. wyświetlanie obrazu, ewentualnie dźwięk.
+
+Najpierw trzeba uzgodnić co to będzie za gra - najlepiej jakaś prosta, np.:
+	-tower defense
+	-platformówka
+	-logiczna
+	-arkanoid
+	-replika jakiejś starego hitu
+	-itd.
+
+Nie wiem jak podzielić na grupy, bo będzie to w dużym stopniu zależało od rodzaju pisanej przez nas gry. Jednakże większość gier posiada stałe elementy,
+których implementowanie można zlecić kilku grupom - niektórym np. po kilka mniejszych modułów. Wszystko zależy też od tego jakie umiejętności posiadają
+uczestnicy warsztatów.
+	-Grafika. Wszelkiego rodzaju bajery na ekranie - rysowanie (bądź googlowaniem) obrazków, animowanie, efekty specjalne.
+	-Logika. Mechanizm gry, a także kod spajający pozostałe elementy.
+	-Input. Obsługa urządzeń wejściowych.
+	-Dźwięk. Różnego rodzaju odgłosy, być może muzyka w tle. (opcjonalne)
+	-Sieć. Rozgrywka może odbywać się też w sieci lokalnej. (opcjonalne)
